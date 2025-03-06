@@ -1,0 +1,19 @@
+<group name="custom_rules" gid="1000">
+    <!-- Mimikatz Detection Rule -->
+    <rule id="100001" level="12">
+        <decoded_as>json</decoded_as>
+        <field name="win.system">Sysmon</field>
+        <field name="win.eventdata.Image" regex="(?i)mimikatz\.exe"/>
+        <description>Mimikatz execution detected</description>
+    </rule>
+
+    <!-- SSH Brute-Force Detection -->
+    <rule id="100002" level="10">
+        <decoded_as>json</decoded_as>
+        <field name="syslog_program">sshd</field>
+        <field name="log" regex="Failed password for invalid user"/>
+        <frequency>5</frequency>
+        <timeframe>60</timeframe>
+        <description>Possible SSH brute-force attack detected</description>
+    </rule>
+</group>
