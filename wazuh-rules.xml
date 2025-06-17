@@ -5,6 +5,9 @@
         <field name="win.system">Sysmon</field>
         <field name="win.eventdata.Image" regex="(?i)mimikatz\.exe"/>
         <description>Mimikatz execution detected</description>
+        <mitre>
+            <id>T1003</id>
+        </mitre>
     </rule>
 
     <!-- SSH Brute-Force Detection -->
@@ -15,5 +18,8 @@
         <frequency>5</frequency>
         <timeframe>60</timeframe>
         <description>Possible SSH brute-force attack detected</description>
+        <mitre>
+            <id>T1110</id>
+        </mitre>
     </rule>
 </group>
